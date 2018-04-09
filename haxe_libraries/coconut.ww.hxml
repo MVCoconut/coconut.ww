@@ -1,0 +1,4 @@
+-D coconut.ww
+-cp src
+-lib coconut.vdom
+-lib lessie

@@ -1,0 +1,4 @@
+-dce full
+-cp tests
+-lib coconut.ww
+-main Playground
