@@ -1,6 +1,6 @@
 {
     "version": "0.1.0",
     "command": "haxe",
-    "args": ["-lib", "coconut.vdom", "tests.hxml", "-js", "bin/js/tests.js", "--times", "--connect", "6001"],
+    "args": ["-lib", "coconut.vdom", "tests.hxml", "-js", "bin/js/tests.js", "--times", "--connect", "5555"],
     "problemMatcher": "$haxe"
 }

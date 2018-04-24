@@ -14,10 +14,10 @@ class TabSwitcher extends View {
         </for>
       </nav>
 
-      <PaneSwitcher selectedIndex={selectedIndex} onselect={selectedIndex = event}>
-        <for {i in 0...children.length}>
-          <TabPane selected={i == selectedIndex} tab={children[i]} />
-        </for>
+      <PaneSwitcher selectedIndex={selectedIndex} total={children.length} onselect={selectedIndex = event}>
+        <pane>
+          <TabPane status={status} tab={children[index]} />
+        </pane>
       </PaneSwitcher>
 
     </div>
@@ -44,10 +44,10 @@ private class TabButton extends View {
 
 private class TabPane extends View {
   @:attribute var tab:Tab;
-  @:attribute var selected:Bool;
+  @:attribute var status:PaneStatus;
   function render() '
     <div>
-      <for {c in tab.content()}>{c}</for>
+      <for {c in tab.content({ status: status })}>{c}</for>
     </div>
   ';  
 }
