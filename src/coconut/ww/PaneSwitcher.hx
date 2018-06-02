@@ -115,7 +115,7 @@ class PaneSwitcher extends View {
 
   var speed = .0;
   function startDrag<T:Event>(method:InputMethod<T>, initial:T, root:Node) {
-
+    
     var cur = method.getPos(initial),
         at = stamp();
 

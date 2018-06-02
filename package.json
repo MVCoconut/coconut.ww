@@ -1,0 +1,11 @@
+{
+  "name": "coconut.ww",
+  "scripts": {
+    "postinstall": "lix download",
+    "build": "haxe dev.hxml"
+  },
+  "dependencies": {
+    "less": "^3.0.4",
+    "lix": "^15.1.1"
+  }
+}

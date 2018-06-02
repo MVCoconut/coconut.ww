@@ -1,0 +1,26 @@
+.cc-tab-switcher {
+  
+  min-height: 400px;
+  min-width: 300px;
+  background: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+
+  >nav {
+    >button {
+      background: none;
+      border: none;
+      padding: 1em 2em;
+      flex-grow: 1;
+    }
+    flex-grow: 0;
+  }
+  &[data-bottom] {
+    >nav {
+      order: 2;
+    }
+  }
+  .cc-pane-switcher {
+    flex-grow: 1;
+  }
+}
