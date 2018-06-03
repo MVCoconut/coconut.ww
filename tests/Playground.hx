@@ -66,42 +66,40 @@ class ExpandedTweet extends View {
 
 class Playground {
   static function main() {
+    coconut.Ui.hxx('<Stack></Stack>');
+    coconut.Ui.hxx('
+      <TabSwitcher>
+        <Tab class="home">
+          <title>Home</title>
+          <content>
+            <ol>
+              <for {i in 0...50}>
+                <li>
 
-    js.Browser.document.body.appendChild(
-      coconut.Ui.hxx('
-        <TabSwitcher>
-          <Tab class="home">
-            <title>Home</title>
-            <content>
-              <ol>
-                <for {i in 0...50}>
-                  <li>
-
-                  </li>
-                </for>
-              </ol>
-            </content>
-          </Tab>
-          <Tab class="search">
-            <title>Search</title>
-            <content>
-              Tab content 2
-            </content>
-          </Tab>
-          <Tab class="notifications">
-            <title>Notifications</title>
-            <content>
-              Tab content 3
-            </content>
-          </Tab>
-          <Tab class="messages">
-            <title>Messages</title>
-            <content>
-              Tab content 4
-            </content>
-          </Tab>
-        </TabSwitcher>
-      ').toElement()
-    );
+                </li>
+              </for>
+            </ol>
+          </content>
+        </Tab>
+        <Tab class="search">
+          <title>Search</title>
+          <content>
+            Tab content 2
+          </content>
+        </Tab>
+        <Tab class="notifications">
+          <title>Notifications</title>
+          <content>
+            Tab content 3
+          </content>
+        </Tab>
+        <Tab class="messages">
+          <title>Messages</title>
+          <content>
+            Tab content 4
+          </content>
+        </Tab>
+      </TabSwitcher>
+    ').mount(js.Browser.document.body);
   }
 }
