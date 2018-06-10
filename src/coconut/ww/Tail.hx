@@ -19,7 +19,7 @@ class Tail<Entry> extends View {
     isAtBottom = e.scrollTop + e.clientHeight >= e.scrollHeight - 1;
 
   function render() '
-    <ol class={className.add("tail")} onscroll={scroll(event.currentTarget)}>
+    <ol class={className.add("cc-tail")} onscroll={scroll(event.currentTarget)}>
       <for {m in entries}>
         <li>{...renderer(m)}</li>
       </for>
