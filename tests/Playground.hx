@@ -66,6 +66,11 @@ class ExpandedTweet extends View {
 
 class Playground {
   static function main() {
+    coconut.Ui.hxx('
+      <Tail entries={[{ name: "John Doe" }]}>
+        <renderer>{name}</renderer>
+      </Tail>
+    ');
     coconut.Ui.hxx('<Stack></Stack>');
     coconut.Ui.hxx('
       <TabSwitcher>
