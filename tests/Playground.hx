@@ -72,6 +72,12 @@ class Playground {
       </Tail>
     ');
     coconut.Ui.hxx('<Stack></Stack>');
+    var value = new tink.state.State(1);
+    coconut.Ui.hxx('<DropdownSelect options={[1,2,3]} onchange={value.set} value={value}>
+      <renderer option>
+        ${option}
+      </renderer>
+    </DropdownSelect>');
     coconut.Ui.hxx('
       <TabSwitcher>
         <Tab class="home">
