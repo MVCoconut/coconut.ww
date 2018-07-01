@@ -77,6 +77,16 @@ class Playground {
         <Tab class="home">
           <title>Home</title>
           <content>
+            <Popover side={PopoverSide.Right}>
+              <toggler>Test</toggler>
+              <content>
+                <ul>
+                  <li>Lorem Ipsum</li>
+                  <li>Bar Foo</li>
+                </ul>
+              </content>
+            </Popover>
+
             <ol>
               <for {i in 0...50}>
                 <li>

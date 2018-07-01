@@ -3,4 +3,4 @@
 -lib coconut.ww
 -main Playground
 -js bin/js/tests.js
---no-output
+#--no-output

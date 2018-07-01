@@ -121,7 +121,7 @@ class PaneSwitcher extends View {
 
     function drag(event:T) {
       var next = method.getPos(event);
-      var delta = (next - cur) / this.toElement().clientWidth,
+      var delta = (next - cur) / this.__dom.clientWidth,//TODO: relying on __dom is not exactly pretty
           deltaT = stamp() - at;
       at += deltaT;
       if (delta != 0)
