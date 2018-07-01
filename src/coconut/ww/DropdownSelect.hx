@@ -7,7 +7,7 @@ class DropdownSelect<T> extends View {
   @:attribute function onchange(value:T):Void;
   @:attribute function renderer(option:T):Children;
   @:attribute function arrow(attr:{ var isOpen:Bool; }):Children 
-    '<span class="arrow"> ▼</span>';
+    '<span class="arrow"> ﹀</span>';
 
   function render() '
     <Popover class=${className.add("cc-dropdown-select")}>
