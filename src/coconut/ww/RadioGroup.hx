@@ -22,6 +22,4 @@ class RadioGroup<Value> extends View {
       </for>
     </div>
   ';
-
-  static function identity<X>(x:X):X return x;
 }
