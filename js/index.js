@@ -4152,7 +4152,7 @@ tink_state__$Observable_Observable_$Impl_$.get_value = function(this1) {
 };
 tink_state__$Observable_Observable_$Impl_$._new = function(get,changed) {
 	var this1 = tink_state__$Observable_Observable_$Impl_$.create(function() {
-		var this2 = new tink_core_MPair(get(),tink_core__$Signal_Signal_$Impl_$.nextTime(changed,null));
+		var this2 = new tink_core_MPair(get(),tink_core__$Signal_Signal_$Impl_$.nextTime(changed));
 		var this3 = this2;
 		return this3;
 	});
@@ -4703,6 +4703,14 @@ tink_state_PromisedTools.flatMap = function(a,f) {
 	case 2:
 		var e = a[2];
 		return tink_state_Promised.Failed(e);
+	}
+};
+tink_state_PromisedTools.toOption = function(p) {
+	if(p[1] == 1) {
+		var data = p[2];
+		return haxe_ds_Option.Some(data);
+	} else {
+		return haxe_ds_Option.None;
 	}
 };
 tink_state_PromisedTools.or = function(p,l) {

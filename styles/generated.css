@@ -1,0 +1,27 @@
+.cc-popover {
+  position: relative;
+  display: table;
+}
+.cc-popover > div {
+  position: absolute;
+  z-index: 10000;
+}
+.cc-popover:not([data-open]) > div {
+  display: none;
+}
+.cc-popover[data-side="top"] > div {
+  bottom: 100%;
+  left: 0;
+}
+.cc-popover[data-side="bottom"] > div {
+  top: 100%;
+  left: 0;
+}
+.cc-popover[data-side="left"] > div {
+  right: 100%;
+  top: 0;
+}
+.cc-popover[data-side="right"] > div {
+  left: 100%;
+  top: 0;
+}

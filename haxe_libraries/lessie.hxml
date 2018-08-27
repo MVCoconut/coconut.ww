@@ -1,0 +1,5 @@
+-D lessie=1.1.1
+# @install: lix --silent download "gh://github.com/back2dos/lessie#8fb71fafa448c63a78e515b3ed942b3379520cc9" into lessie/1.1.1/github/8fb71fafa448c63a78e515b3ed942b3379520cc9
+-lib tink_parse
+-cp ${HAXE_LIBCACHE}/lessie/1.1.1/github/8fb71fafa448c63a78e515b3ed942b3379520cc9/src
+--macro lessie.Lessie.use()

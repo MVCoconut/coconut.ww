@@ -1,5 +1,8 @@
 -cp src
 -main KitchenSink
--js bin/index.js
+-js js/index.js
 
 -lib coconut.ww
+-lib lessie
+
+-D lessieOutput=./styles/generated.css
