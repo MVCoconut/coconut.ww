@@ -1,0 +1,4 @@
+-D coconut.ww=0.0.0
+# @install: lix --silent download "gh://github.com/mvcoconut/coconut.ww#a7015003a9b990188ad87033367c8a8aadba6fe3" into coconut.ww/0.0.0/github/a7015003a9b990188ad87033367c8a8aadba6fe3
+-lib coconut.vdom
+-cp ${HAXE_LIBCACHE}/coconut.ww/0.0.0/github/a7015003a9b990188ad87033367c8a8aadba6fe3/src

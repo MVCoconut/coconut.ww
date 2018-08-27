@@ -1,0 +1,5 @@
+-cp src
+-main KitchenSink
+-js bin/index.js
+
+-lib coconut.ww
