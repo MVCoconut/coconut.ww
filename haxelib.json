@@ -2,7 +2,8 @@
 	"name": "coconut.ww",
 	"classPath": "src",
 	"dependencies": {
-		"coconut.vdom": ""
+		"coconut.vdom": "",
+		"lessie": ""
 	},
 	"url": "https://github.com/MVCoconut/coconut.ui/",
 	"contributors": [
