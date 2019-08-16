@@ -59,7 +59,7 @@ class Popover extends View {
   }
 
   function render() '
-    <div class=${className.add("cc-popover")} data-side=${(side:String)} data-open=${isOpen}>
+    <div class=${ROOT.add(className)} data-side=${(side:String)} data-open=${isOpen}>
       <button type="button" onclick=${if (!isOpen) open()}>
         ${...toggler({ isOpen: isOpen })}
       </button>

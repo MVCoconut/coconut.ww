@@ -24,6 +24,11 @@ interface LazyList<T> extends Model {
   function get(range:IntIterator):Slice<T>;
 }
 
+abstract Yo(Dynamic) {
+  public function new(o:{ foo: Int })
+    this = null;
+}
+
 class FakeLazyList<T> implements LazyList<T> {
   @:constant var data:Slice<T>;
   @:computed var total:Int = data.length;
@@ -86,7 +91,8 @@ class Playground {
         </DropdownSelect>
       </div>
     ');
-    coconut.Ui.hxx('
+
+    coconut.ui.Renderer.mount(js.Browser.document.body, coconut.Ui.hxx('
       <TabSwitcher>
         <Tab class="home">
           <title>Home</title>
@@ -129,6 +135,6 @@ class Playground {
           </content>
         </Tab>
       </TabSwitcher>
-    ');//.mount(js.Browser.document.body);
+    '));//.mount();
   }
 }

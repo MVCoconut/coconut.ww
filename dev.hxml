@@ -2,5 +2,5 @@
 -cp tests
 -lib coconut.ww
 -main Playground
--js bin/js/tests.js
+-js bin/playground.js
 #--no-output
