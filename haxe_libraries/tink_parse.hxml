@@ -1,5 +1,4 @@
-# @install: lix download https://github.com/haxetink/tink_parse/archive/d7e095f3a3dc553a7082b8a7d263954f6ecd4124.tar.gz as tink_parse#0.2.0/d7e095f3a3dc553a7082b8a7d263954f6ecd4124
--D tink_parse=0.2.0
--cp ${HAXESHIM_LIBCACHE}/tink_parse/0.2.0/d7e095f3a3dc553a7082b8a7d263954f6ecd4124/src
-
+-D tink_parse=0.3.0
+# @install: lix --silent download "gh://github.com/haxetink/tink_parse#36cc29aca5bc399e366db3c3f3ceb0b257808615" into tink_parse/0.3.0/github/36cc29aca5bc399e366db3c3f3ceb0b257808615
 -lib tink_core
+-cp ${HAXE_LIBCACHE}/tink_parse/0.3.0/github/36cc29aca5bc399e366db3c3f3ceb0b257808615/src
