@@ -1,6 +1,7 @@
 -dce full
 -cp tests
 -lib coconut.ww
--main Playground
+coconut.ww.Tab
+# -main Playground
 -js bin/js/tests.js
 #--no-output

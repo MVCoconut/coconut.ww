@@ -1,13 +1,29 @@
 package coconut.ww;
 
 typedef PaneInfo = {
-  var index(default, never):Int;
-  var status(default, never):PaneStatus;
+  final index:Int;
+  final status:PaneStatus;
 }
 
-@:less("pane-switcher.less")
 class PaneSwitcher extends View {
 
+  static final ROOT = css('
+    position: relative;
+    overflow: hidden;
+
+    &>ol {        
+      list-style: none;
+      &>li {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }  
+    }  
+  ');
+
+  @:ref var root:Element;
   @:attribute var className:ClassName = null;
   @:attribute var pane:PaneInfo->Null<Children>;
   @:attribute var total:Int;
@@ -68,10 +84,10 @@ class PaneSwitcher extends View {
           { visibility: 'hidden' }
 
     return @hxx'
-      <div class=${className.add("cc-pane-switcher")}>
+      <div ref=${root} class=${ROOT.add(className)}>
         <ol 
-            onmousedown={startDrag(MOUSE, event, event.target.ownerDocument)}
-            ontouchstart={startDrag(TOUCH, event, event.target.ownerDocument)}
+            onmousedown=${startDrag(MOUSE, event, event.target.ownerDocument)}
+            ontouchstart=${startDrag(TOUCH, event, event.target.ownerDocument)}
           >
           <for ${pos in 0...count}>
             <switch ${pane({ index: pos, status: if (pos == index) Active else if (isVisible(pos)) Visible else Invisible })}>
@@ -121,7 +137,7 @@ class PaneSwitcher extends View {
 
     function drag(event:T) {
       var next = method.getPos(event);
-      var delta = (next - cur) / this.__dom.clientWidth,//TODO: relying on __dom is not exactly pretty
+      var delta = (next - cur) / this.root.clientWidth,
           deltaT = stamp() - at;
       at += deltaT;
       if (delta != 0)
@@ -158,6 +174,6 @@ class PaneSwitcher extends View {
 typedef InputMethod<T:Event> = {
   function getPos(event:T):Float;
   function isFinal(event:T):Bool;
-  var move(default, never):String;
-  var end(default, never):String;
+  final move:String;
+  final end:String;
 }
