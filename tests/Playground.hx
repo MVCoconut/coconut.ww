@@ -67,6 +67,12 @@ class ExpandedTweet extends View {
 class Playground {
   static function main() {
     var value = new tink.state.State(1);
+
+    new Tab({
+      title: ['foo'],
+      content: _ -> ['bar']
+    });
+
     coconut.Ui.hxx('
       <div>
         <Tail entries={[{ name: "John Doe" }]}>
@@ -123,6 +129,6 @@ class Playground {
           </content>
         </Tab>
       </TabSwitcher>
-    ').mount(js.Browser.document.body);
+    ');//.mount(js.Browser.document.body);
   }
 }
