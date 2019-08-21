@@ -1,6 +1,11 @@
 package coconut.ww;
 
-// @:less('root.less')//TODO: add somewhere else
+import coconut.ww.Nav;
+
+typedef Tab = NavItem & {
+  final content:{ final status:PaneStatus; }->Children;
+}
+
 class TabSwitcher extends View {
 
   static final ROOT = css('
@@ -10,78 +15,49 @@ class TabSwitcher extends View {
     display: flex;
     flex-direction: column;
 
-    &>nav {
-      &>button {
-        background: none;
-        border: none;
-        padding: 1em 2em;
-        flex-grow: 1;
-      }
+    &>*:first-child {
       flex-grow: 0;
     }
+    
+    &>*:last-child {
+      flex-grow: 1;
+    }
+    
     &[data-bottom] {
-     & >nav {
+     &>*:first-child {
         order: 2;
       }
     }
   ');
 
-  static final CONTENT = css('
-    flex-grow: 1;
-  ');
-
   @:attribute var className:ClassName = null;
   @:attribute var bottom:Bool = false;
-  @:attribute var children:tink.pure.Slice<Tab>;
+  @:attribute var tabs:{ function tab(attr:Tab):Tab; }->tink.pure.Slice<Tab>;
   
+  @:computed var allTabs:tink.pure.Slice<Tab> = tabs({ tab: t -> t});
   @:state var selectedIndex:Int = 0;
+  // @:computed var items:tink.pure.Slice<Nav.NavItem> = 
+  //   [for (tab in children) ({
+  //     title: tab.title,
+  //     disabled: tab.disabled
+  //   }:Nav.NavItem)];
   
   function render() '
     <div class=${ROOT.add(className)} data-bottom=${bottom}>
       
-      <nav>
-        <for ${i in 0...children.length}>
-          <TabButton ${...children[i]} selected=${i == selectedIndex} onselect=${selectedIndex = i} />
-        </for>
-      </nav>
+      <Nav items=${allTabs} selectedIndex=$selectedIndex onselect=${selectedIndex = event} />
 
-      <PaneSwitcher class=${CONTENT} selectedIndex=${selectedIndex} total=${children.length} onselect=${selectedIndex = event}>
+      <PaneSwitcher 
+          selectedIndex=${selectedIndex} 
+          total=${allTabs.length} onselect=${selectedIndex = event}
+        >
         <pane>
-          <TabPane status=${status} tab=${children[index]} />
+          <Isolated>
+            ${...allTabs[index].content({ status: status })}
+          </Isolated>
         </pane>
       </PaneSwitcher>
 
     </div>
   ';
-}
-
-private class TabButton extends View {
-  @:attribute var className:ClassName = null;
-  @:attribute var title:Children;
-  @:attribute var disabled:Bool = false;
-  @:attribute var selected:Bool;
-  @:attribute function onselect():Void;
-
-  function render() '
-    <button 
-        class=${className} 
-        onclick=${onselect}
-        data-selected=${selected}
-        disabled=${disabled}
-      >
-      ${...title}
-    </button>
-  ';
-}
-
-private class TabPane extends View {
-  
-  @:attribute var tab:Tab;
-  @:attribute var status:PaneStatus;
-
-  function render() '
-    <div class=${tab.className}>
-      <for ${c in tab.content({ status: status })}>${c}</for>
-    </div>
-  ';  
 }

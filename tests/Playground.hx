@@ -71,70 +71,52 @@ class ExpandedTweet extends View {
 
 class Playground {
   static function main() {
-    var value = new tink.state.State(1);
-
-    new Tab({
-      title: ['foo'],
-      content: _ -> ['bar']
-    });
-
-    coconut.Ui.hxx('
-      <div>
-        <Tail entries={[{ name: "John Doe" }]}>
-          <renderer>{name}</renderer>
-        </Tail>
-        <Stack></Stack>
-        <DropdownSelect options={[1,2,3]} onchange={value.set} value={value}>
-          <renderer option>
-            ${option}
-          </renderer>
-        </DropdownSelect>
-      </div>
-    ');
 
     coconut.ui.Renderer.mount(js.Browser.document.body, coconut.Ui.hxx('
-      <TabSwitcher>
-        <Tab class="home">
-          <title>Home</title>
-          <content>
-            <Popover side={PopoverSide.Right}>
-              <toggler>Test</toggler>
-              <content>
-                <ul>
-                  <li>Lorem Ipsum</li>
-                  <li>Bar Foo</li>
-                </ul>
-              </content>
-            </Popover>
+      <TabSwitcher class=${cix.Style.rule('width: 400px')}>
+        <tabs>
+          <tab style=${_ -> ["foo" => true, "bar" => false]}>
+            <title>Home</title>
+            <content>
+              <Popover side={Right}>
+                <toggler>Test</toggler>
+                <content>
+                  <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Bar Foo</li>
+                  </ul>
+                </content>
+              </Popover>
 
-            <ol>
-              <for {i in 0...50}>
-                <li>
+              <ol>
+                <for {i in 0...50}>
+                  <li>
 
-                </li>
-              </for>
-            </ol>
-          </content>
-        </Tab>
-        <Tab class="search">
-          <title>Search</title>
-          <content>
-            Tab content 2
-          </content>
-        </Tab>
-        <Tab class="notifications">
-          <title>Notifications</title>
-          <content>
-            Tab content 3
-          </content>
-        </Tab>
-        <Tab class="messages">
-          <title>Messages</title>
-          <content>
-            Tab content 4
-          </content>
-        </Tab>
+                  </li>
+                </for>
+              </ol>
+            </content>
+          </tab>
+          <tab>
+            <title>Search</title>
+            <content>
+              tab content 2
+            </content>
+          </tab>
+          <tab>
+            <title>Notifications</title>
+            <content>
+              tab content 3
+            </content>
+          </tab>
+          <tab>
+            <title>Messages</title>
+            <content>
+              tab content 4
+            </content>
+          </tab>
+        </tabs>
       </TabSwitcher>
-    '));//.mount();
+    '));
   }
 }
