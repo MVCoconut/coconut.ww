@@ -7,3 +7,4 @@ import js.html.*;
 import js.Browser.*;
 import cix.Style.rule as css;
 #end
+using tink.CoreApi;
