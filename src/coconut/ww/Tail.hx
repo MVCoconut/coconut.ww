@@ -2,7 +2,7 @@ package coconut.ww;
 
 /**
  * Named after the `tail -f` command, this view displays a list of entries,
- * while maintaining scroll position at the bottom. The scroll locking is 
+ * while maintaining scroll position at the bottom. The scroll locking is
  * disabled as soon as the user scrolls up and reenabled when the user scroll
  * back to the bottom.
  */
@@ -10,14 +10,14 @@ class Tail<Entry> extends View {
 
   static final TAIL = css('
     overflow: hidden auto;
-    listStyle: none;
-    maxHeight: 100%;
+    list-style: none;
+    max-height: 100%;
   ');
-  
+
   @:attribute var className:ClassName = null;
   @:attribute var entries:List<Entry>;
   @:attribute var renderer:Entry->Children;
-  
+
   @:ref var root:Element;
 
   var isAtBottom:Bool = true;
@@ -33,7 +33,7 @@ class Tail<Entry> extends View {
     </ol>
   ';
 
-  override function viewDidMount() 
+  override function viewDidMount()
     if (isAtBottom)
       root.scrollTop = root.scrollHeight;
 }
